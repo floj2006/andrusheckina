@@ -1,0 +1,8 @@
+preview/
+check-visual.cjs
+server.cjs
+README.md
+node_modules/
+*.tgz
+.git/
+.env*
