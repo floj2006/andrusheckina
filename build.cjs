@@ -4,8 +4,8 @@ const path = require('node:path');
 const root = __dirname;
 const output = path.join(root, 'dist');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const photos = [...new Set([...html.matchAll(/src="(photo anna\/[^\"]+)"/g)].map(match => match[1]))];
-const files = ['index.html', 'styles.css', 'app.js', 'favicon.svg', 'ICON-LICENSES.txt', ...photos];
+const photos = [...new Set([...html.matchAll(/(?:src|href)="(photo anna\/[^\"]+)"/g)].map(match => match[1]))];
+const files = ['index.html', 'styles.css', 'app.js', 'gallery.css', 'gallery.js', 'favicon.svg', 'ICON-LICENSES.txt', ...photos];
 for (const file of files) {
   const source = path.resolve(root, file);
   const target = path.resolve(output, file);
